@@ -4,7 +4,8 @@
     overflow-y: scroll; 
     scrollbar-width: thin;  
     -ms-overflow-style: none;
-    scrollbar-color:rgba(17,25,40,0.5);
+    scrollbar-color:rgba(17,25,40,0.5); 
+    color:white;
     .search{
         display:flex;
         align-items: center; 

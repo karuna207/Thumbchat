@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "./chat.css"; 
 import EmojiPicker from "emoji-picker-react";
 
-function Chat() {
-  return <p className="chat">
+function Chat() { 
+    const [open,setOpen]=useState(false);  
+    const [text,setText]=useState("");
+
+    function handleOpen(){
+        setOpen((prev)=>{
+            return !prev;
+        })
+    }  
+
+    console.log(text);
+
+    function handleEmoji(e){
+        console.log(e); 
+        setText((prev)=>{
+            return prev+e.emoji; 
+        }) 
+        setOpen((prev)=>{
+            return !prev;
+        }) 
+    }
+    return <p className="chat">
     <div className="top">
         <div className="user"> 
             <img src="./avatar.png"></img> 
@@ -20,9 +40,35 @@ function Chat() {
         </div>
     </div> 
     <div className="center">
-
-
-
+        <div className="message">
+            <img src="./avatar.png"></img> 
+            <div className="text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia veniam facilis, dolore, odio quasi iste et magnam non a, delectus nobis vel error sint! Molestias, voluptas. Hic nesciunt dolor aliquam?</p>
+                <span>1 min ago </span>        
+            </div>
+        </div>
+        <div className="message own">
+       
+            <div className="text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia veniam facilis, dolore, odio quasi iste et magnam non a, delectus nobis vel error sint! Molestias, voluptas. Hic nesciunt dolor aliquam?</p>
+                <span>1 min ago </span>        
+            </div>
+        </div>
+        <div className="message">
+            <img src="./avatar.png"></img> 
+            <div className="text">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia veniam facilis, dolore, odio quasi iste et magnam non a, delectus nobis vel error sint! Molestias, voluptas. Hic nesciunt dolor aliquam?</p>
+                <span>1 min ago </span>        
+            </div>
+        </div>
+        <div className="message own">
+           
+            <div className="text"> 
+            <img src="https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?cs=srgb&dl=daylight-environment-forest-459225.jpg&fm=jpg"></img>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia veniam facilis, dolore, odio quasi iste et magnam non a, delectus nobis vel error sint! Molestias, voluptas. Hic nesciunt dolor aliquam?</p>
+                <span>1 min ago </span>        
+            </div>
+        </div>
     </div>
     <div className="bottom">
         <div className="icons">
@@ -30,10 +76,16 @@ function Chat() {
             <img src="./camera.png"></img>
             <img src="./mic.png"></img>
         </div> 
-        <input className='getinput'type='text' placeholder="Type a message..."></input>
+        <input className='getinput' type='text' value={text} placeholder="Type a message..." onChange={(e)=>{
+            // console.log(e);
+            setText(e.target.value);
+        }}></input>
         <div className="emoji">
-            <img src="./emoji.png"></img> 
-            <EmojiPicker/>
+            <img src="./emoji.png" onClick={handleOpen}></img>  
+            <div className="picker">
+                <EmojiPicker open={open} onEmojiClick={handleEmoji}/>
+            </div>
+            
         </div>
         <button className="sendButton">Send</button>
 
