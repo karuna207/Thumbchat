@@ -1,5 +1,6 @@
 import React from "react";
-import "./chat.css";
+import "./chat.css"; 
+import EmojiPicker from "emoji-picker-react";
 
 function Chat() {
   return <p className="chat">
@@ -31,7 +32,8 @@ function Chat() {
         </div> 
         <input className='getinput'type='text' placeholder="Type a message..."></input>
         <div className="emoji">
-            <img src="./emoji.png"></img>
+            <img src="./emoji.png"></img> 
+            <EmojiPicker/>
         </div>
         <button className="sendButton">Send</button>
 
