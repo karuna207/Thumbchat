@@ -1,3 +1,86 @@
 .details{
-    flex:1;
+    flex:1;  
+    color:white;
+    .user{
+        display: flex;
+        flex-direction: column; 
+        gap:20px;
+        align-items: center;
+        padding:30px 20px;  
+        border-bottom: 1px solid rgb(132, 145, 167);
+        img{
+            height:60px;
+            width:60px;
+            border-radius: 50%; 
+            object-fit: cover;
+        } 
+        p{
+            font-size: 14px; 
+            font-weight: lighter;
+        }
+    } 
+    .info{
+        display: flex; 
+        flex-direction: column; 
+        padding: 20px; 
+        gap:30px;  
+        button{
+            color:white;
+            background-color: rgba(158, 39, 39,0.7); 
+            padding:10px 20px;
+            border:none;
+            border-radius: 5px; 
+            cursor: pointer; 
+            &:hover{
+                background-color: rgba(158, 39, 39,1); 
+
+            }
+        }
+        /* align-items: center;  */
+        .options{
+            .title{
+                display: flex;
+                align-items: center; 
+                justify-content: space-between;
+            } 
+            img{
+                width:30px;
+                height:30px;
+                border-radius:20px;
+                cursor: pointer; 
+                padding: 10px; 
+                background-color: rgba(17,25,40,0.3);
+            } 
+            
+            .photos{
+                display: flex;
+                flex-direction: column; 
+                gap:20px;
+                overflow: scroll; 
+                margin-top: 20px;
+                .photoitem{ 
+                    display: flex;
+                    justify-content:space-between; 
+                    align-items: center;
+                    .photodetail{  
+                        display: flex;
+                        gap:20px;
+                        align-items: center;
+                        img{
+                            width:40px ;
+                            height:40px; 
+                            border-radius: 5px;
+                            object-fit: cover;    
+                        } 
+                        span{
+                            font-size: 14px; 
+                            color:grey
+                        }
+
+                    }
+                    
+                }
+            } 
+        }
+    }
 }
