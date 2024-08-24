@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState,useRef,useEffect } from "react";
 import "./chat.css"; 
 import EmojiPicker from "emoji-picker-react";
 
 function Chat() { 
     const [open,setOpen]=useState(false);  
-    const [text,setText]=useState("");
+    const [text,setText]=useState(""); 
+    const endRef=useRef(null); 
+
+    useEffect(()=>{
+        endRef.current?.scrollIntoView({behavior:"smooth"})
+    },[])
 
     function handleOpen(){
         setOpen((prev)=>{
@@ -68,7 +73,8 @@ function Chat() {
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia veniam facilis, dolore, odio quasi iste et magnam non a, delectus nobis vel error sint! Molestias, voluptas. Hic nesciunt dolor aliquam?</p>
                 <span>1 min ago </span>        
             </div>
-        </div>
+        </div> 
+        <div ref={endRef}></div>
     </div>
     <div className="bottom">
         <div className="icons">

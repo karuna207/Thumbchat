@@ -1,6 +1,10 @@
 .details{
     flex:1;  
-    color:white;
+    color:white;  
+    overflow-y: scroll; 
+    scrollbar-width: thin;  
+    -ms-overflow-style: none;
+
     .user{
         display: flex;
         flex-direction: column; 
@@ -34,7 +38,12 @@
             &:hover{
                 background-color: rgba(158, 39, 39,1); 
 
+            } 
+            &.logout{
+                padding:10px;
+                background-color: rgb(24, 54, 100);
             }
+
         }
         /* align-items: center;  */
         .options{
@@ -50,7 +59,7 @@
                 cursor: pointer; 
                 padding: 10px; 
                 background-color: rgba(17,25,40,0.3);
-            } 
+            }  
             
             .photos{
                 display: flex;
@@ -81,6 +90,7 @@
                     
                 }
             } 
+             
         }
     }
 }

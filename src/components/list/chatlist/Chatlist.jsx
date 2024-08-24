@@ -1,5 +1,6 @@
 import React, { useState } from "react"; 
-import "./chatlist.css"
+import "./chatlist.css" 
+import AddUser from "./addUser/addUser.jsx";
 
 function Chatlist(){ 
 
@@ -69,7 +70,8 @@ function Chatlist(){
                 <span>haris</span> 
                 <p>this is last message</p>
             </div>
-        </div>
+        </div> 
+        {mode ? <AddUser /> : null}
     </div> 
 } 
 
