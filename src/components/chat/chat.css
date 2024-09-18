@@ -32,7 +32,7 @@
         span {
           font-weight: bold;
           font-size: 18px; 
-          color:white;
+          color: white;
         }
         p {
           font-size: 14px;
@@ -54,83 +54,87 @@
     }
   } 
 
-  .center{
-    padding:20px;
-    flex:1;
+  .center {
+    padding: 20px;
+    flex: 1;
     display: flex;  
     flex-direction: column; 
-    gap:20px; 
+    gap: 20px; 
     overflow: scroll;  
     border-radius: 10px; 
 
-    span{
+    span {
       font-size: 12px;
     }
     
-    img{
-      height:30px;
-      width:30px;
+    img {
+      height: 30px;
+      width: 30px;
       border-radius: 50%;
     } 
-    .message{ 
+
+    .message { 
       display: flex;
-      gap:20px;  
-      color:white;
-      max-width: 70%; 
-      border-radius: 10px;
-      /* background-color: white;   */
-    
-      &.own{
+      gap: 20px;  
+      color: white;
+      max-width: 60%; /* Increase width of received messages */
+      border-radius: 20px;
+      align-items: flex-start; 
+      background-color: rgb(49, 49, 131);
+
+      &.own {
         align-self: flex-end;
+        flex-direction: row-reverse; /* Align avatar and text in reverse order */
+        max-width: 60%; /* Increase width of sent messages */
         
-        .text{ 
-          border-radius: 10px;
-          p{
-            padding: 20px; 
-            
+        .text { 
+          background-color: rgb(49, 49, 131);
+          color: white;
+          border-radius: 15px 15px 0px 15px; /* More rounded for the sender's message */
+
+          p {
+            padding: 20px;
             background-color: rgb(49, 49, 131);
+            border-radius: 15px;
           }  
-          img{
-            width:100%;
-            height:300px;
+          
+          img {
+            width: 100%;
+            height: 300px;
             object-fit: cover; 
             border-radius: 10px;
           }
-          
         } 
-         
-        
       }
 
-      .text{ 
-        flex:1;
+      .text {
+        flex: 1;
         display: flex; 
         flex-direction: column; 
-        gap:5px;   
-        border-radius:20px;
-        p{
-          
+        gap: 5px;
+        border-radius: 15px;
+        
+        p {
           background-color: rgba(17, 25, 40, 0.3); 
           padding: 20px;
-        } 
-        img{
-          width:100%;
-          height:300px;
+          border-radius: 15px 15px 15px 0px; /* Different rounding for other users */
+        }
+
+        img {
+          width: 100%;
+          height: 300px;
           object-fit: cover; 
           border-radius: 10px;
         }
-
       }
-    
     }
-    
   }
 
   .bottom {
     padding: 20px;
     border-top: 1px solid #a5a5a5;
     display: flex; 
-    gap:10px;
+    gap: 10px;
     align-items: center;
     justify-content: space-between; 
     margin-top: auto;
@@ -138,40 +142,53 @@
     .icons {
       display: flex;
       gap: 20px;
-    } 
+    }
+
     img {
-        height: 24px;
-        width: 24px;
-        cursor: pointer;
-      }
+      height: 24px;
+      width: 24px;
+      cursor: pointer;
+    }
+
     .getinput {
-        flex: 1;
-        background-color: rgba(17, 25, 40, 0.5);
-        outline: none;
-        border: none;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 10px;
-        font-size: 16px;
-    } 
-    .emoji{
-      position:relative;
+      flex: 1;
+      background-color: rgba(17, 25, 40, 0.5);
+      outline: none;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 16px; 
+
+      &:disabled{
+        background-color: #5182feb4;
+        cursor:not-allowed;
+      }
       
-      .picker{
-        position:absolute; 
-        bottom:50px;
-        left:0px;
+    }
+
+    .emoji {
+      position: relative;
+
+      .picker {
+        position: absolute; 
+        bottom: 50px;
+        left: 0px;
       }
     }
+
     .sendButton {
-        background-color: blue;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
+      background-color: blue;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer; 
+
+      &:disabled{
+        background-color: #5182feb4;
+        cursor:not-allowed;
       }
-    
-  
-}
+    }
+  }
 }

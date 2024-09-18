@@ -10,16 +10,17 @@ import { onAuthStateChanged } from "firebase/auth"
 import useUserStore from "./lib/userStore.js" 
 
 import {auth,db,storage} from "./lib/firebase.js"
+import useChatStore from "./lib/chatStore.js"
 
 
  
 const App = () => {  
   const{currentUser,isLoading,fetchUserInfo,setCurrentUser,setIsLoading}=useUserStore();
-  // const user=false;
+  const { chatId}=useChatStore();
   useEffect(()=>{
     const unsub=onAuthStateChanged(auth,(user)=>{  
       if(user){
-      fetchUserInfo(user.uid);
+      fetchUserInfo(user?.uid);
       console.log(user); 
       }else{
         setCurrentUser(null);
@@ -38,8 +39,8 @@ const App = () => {
   return <div className="container">
     {(currentUser)?<>
       <List/> 
-      <Chat/>
-      <Details/>
+      {chatId && <Chat/>}
+      {chatId && <Details/>}
     </>:<Login/>} 
     <Notification/>
   </div>
